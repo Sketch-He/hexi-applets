@@ -2,7 +2,7 @@
   <view class="charts-box">
     <qiun-data-charts
         type="pie"
-        :chartData="chartData"
+        :chartData="authenticationChartData"
         background="none"
     />
   </view>
@@ -15,7 +15,7 @@ export default {
   name: "companyAuthenticationChart",
   data() {
     return {
-      chartData:{
+      authenticationChartData:{
         "series": [
           {
             "data": []
@@ -35,7 +35,7 @@ export default {
     getCompany() {
       getJson(this.params).then(res => {
         for (let i = 0; i < res.data.countGroupByCertificationType.length; i++) {
-          this.chartData.series[0].data.push({
+          this.authenticationChartData.series[0].data.push({
             name: res.data.countGroupByCertificationType[i].certificationType,
             value: res.data.countGroupByCertificationType[i].count
           })

@@ -2,7 +2,7 @@
   <view class="charts-box">
     <qiun-data-charts
         type="column"
-        :chartData="chartData"
+        :chartData="MonthChartData"
         background="none"
     />
   </view>
@@ -15,7 +15,7 @@ export default {
   name: "MonthCompanyAuthenticationChart",
   data() {
       return {
-        chartData:{
+        MonthChartData:{
           "categories": [],
           "series": [
             {
@@ -36,8 +36,8 @@ export default {
       getJson(this.params).then(res => {
         let data = res.data.countGroupByMonth.splice(1,6).reverse()
         for (let i = 0; i < data.length; i++) {
-          this.chartData.categories.push(data[i].month)
-          this.chartData.series[0].data.push(data[i].count)
+          this.MonthChartData.categories.push(data[i].month)
+          this.MonthChartData.series[0].data.push(data[i].count)
         }
       })
     }

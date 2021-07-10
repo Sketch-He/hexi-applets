@@ -1,10 +1,40 @@
 <template>
-  <view class="charts-box">
-    <qiun-data-charts
-        type="pie"
-        :chartData="chartData"
-        background="none"
-    />
+  <view>
+<!--公司类型-->
+    <br>
+    <view class="charts-box">
+      <h3 style="text-align: center">企业类型</h3>
+      <qiun-data-charts
+          type="pie"
+          :chartData="chartData"
+          background="none"
+      />
+    </view>
+    <br>    <hr style="width: 80%; position: absolute; left: 10%">
+    <br>
+
+    <!--公司认证-->
+    <view class="charts-box">
+      <h3 style="text-align: center">企业认证</h3>
+      <qiun-data-charts
+          type="pie"
+          :chartData="authenticationChartData"
+          background="none"
+      />
+    </view>
+    <br><hr style="width: 80%; position: absolute; left: 10%">
+    <br>
+<!--月入驻公司数据-->
+    <view class="charts-box">
+      <h3 style="text-align: center">企业入驻信息</h3>
+      <qiun-data-charts
+          type="column"
+          :chartData="MonthChartData"
+          background="none"
+      />
+    </view>
+    <br><hr style="width: 80%; position: absolute; left: 10%">
+    <br>
   </view>
 </template>
 
@@ -15,6 +45,7 @@ export default {
   name: "settleInCompanyChart",
   data() {
     return {
+      //公司类型
       chartData:{
         "series": [
           {
@@ -22,6 +53,25 @@ export default {
           }
         ]
       },
+      //月入驻公司数据
+      MonthChartData:{
+        "categories": [],
+        "series": [
+          {
+            "name": "入驻公司",
+            "data": []
+          }
+        ]
+      },
+      //公司认证
+      authenticationChartData:{
+        "series": [
+          {
+            "data": []
+          }
+        ]
+      },
+
       params: {
         type: "Company",
         name: "statistics",
@@ -34,10 +84,26 @@ export default {
     //获取公司数据
     getCompany() {
       getJson(this.params).then(res => {
+
         for (let i = 0; i < res.data.countGroupByType.length; i++) {
           this.chartData.series[0].data.push({
             name: res.data.countGroupByType[i].type,
             value: res.data.countGroupByType[i].count
+          })
+        }
+
+        //月入驻公司数据
+        let data = res.data.countGroupByMonth.splice(1,6).reverse()
+        for (let i = 0; i < data.length; i++) {
+          this.MonthChartData.categories.push(data[i].month)
+          this.MonthChartData.series[0].data.push(data[i].count)
+        }
+
+        //公司认证
+        for (let i = 0; i < res.data.countGroupByCertificationType.length; i++) {
+          this.authenticationChartData.series[0].data.push({
+            name: res.data.countGroupByCertificationType[i].certificationType,
+            value: res.data.countGroupByCertificationType[i].count
           })
         }
       })

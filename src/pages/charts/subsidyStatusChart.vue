@@ -1,13 +1,20 @@
 <template>
   <view>
+    <br><hr style="width: 80%; position: absolute; left: 10%">
+    <br>
     <view class="charts-box">
+      <h3 style="text-align: center">补贴金额/月</h3>
       <qiun-data-charts
           type="line"
           :chartData="chartData"
           background="none"
       />
     </view>
+    <br><hr style="width: 80%; position: absolute; left: 10%">
+    <br>
     <view class="charts-box">
+      <h3 style="text-align: center">补贴金额/年</h3>
+
       <qiun-data-charts
           type="line"
           :chartData="subsidyChartData"
@@ -29,7 +36,7 @@ export default {
         "categories": [],
         "series": [
           {
-            "name": "入驻公司",
+            "name": "补贴金额/月",
             "data": []
           }
         ]
@@ -38,7 +45,7 @@ export default {
         "categories": [],
         "series": [
           {
-            "name": "入驻公司",
+            "name": "补贴金额/年",
             "data": []
           }
         ]
