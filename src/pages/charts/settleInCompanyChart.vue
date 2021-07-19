@@ -35,6 +35,18 @@
     </view>
     <br><hr style="width: 80%; position: absolute; left: 10%">
     <br>
+
+
+    <view class="charts-box">
+      <h3 style="text-align: center">企业入驻信息/年</h3>
+      <qiun-data-charts
+          type="column"
+          :chartData="YearChartData"
+          background="none"
+      />
+    </view>
+    <br>
+
   </view>
 </template>
 
@@ -63,6 +75,17 @@ export default {
           }
         ]
       },
+      //年入驻公司数据
+      YearChartData:{
+        "categories": [],
+        "series": [
+          {
+            "name": "入驻公司",
+            "data": []
+          }
+        ]
+      },
+
       //公司认证
       authenticationChartData:{
         "series": [
@@ -84,7 +107,7 @@ export default {
     //获取公司数据
     getCompany() {
       getJson(this.params).then(res => {
-
+        console.log(res)
         for (let i = 0; i < res.data.countGroupByType.length; i++) {
           this.chartData.series[0].data.push({
             name: res.data.countGroupByType[i].type,
@@ -106,6 +129,14 @@ export default {
             value: res.data.countGroupByCertificationType[i].count
           })
         }
+
+        //公司入驻/年
+        let count = res.data.countGroupByYear.splice(1, 4)
+        for (let i = 0; i < count.length; i++) {
+          this.YearChartData.categories.push(count[i].year)
+          this.YearChartData.series[0].data.push(count[i].count)
+        }
+        console.log(this.YearChartData)
       })
     }
   },
