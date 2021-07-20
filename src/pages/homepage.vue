@@ -1,21 +1,20 @@
 <template>
   <view>
-    <br>
-    <h3 style="text-align: center">柳州天步科技创业园智慧园区</h3>
-    <br>
+    <view style="height: 50px;background: #191D3A; color: white">
+      <h3 style="text-align: center; padding-top: 15px">柳州天步科技创业园智慧园区</h3>
+    </view>
+
     <hr style="width: 80%; position: absolute; left: 10%">
 
     <carousel />
-
-
     <settle-in-company-chart />
     <subsidy-status-chart />
-    <hydropower-chart />
-    <br><br>
     <number-of-patents />
-
-
-    <button type="primary" size="mini" @click="signIn">点击登录</button>
+    <hydropower-chart />
+    <br>
+    <hr style="width: 80%; position: absolute; left: 10%">
+    <br>
+    <button @click="signIn">登录</button>
 
   </view>
 </template>
@@ -36,28 +35,18 @@ export default {
   },
   methods: {
     signIn() {
-      // this.$router.push({path: 'pages/versionControl'})
-      uni.showModal({
-        title:"提示",
-        content:
-            // "是否删除该图片",
-            {
-          template: '<div>foo</div>'
-        },
-        showCancel:true,
-        cancelText:'不删除',
-        confirmText:'删除',
-        success:res=>{
-          if(res.confirm){
-            // 用户点击确定
-
-          }else{
-            // 否则点击了取消
-          }
-        }
-      })
+      // this.$router.push({path: 'pages/editVersion'})
+      this.$router.push({path: 'pages/versionControl'})
 
     }
+  },
+  // computed: {
+  //
+  //   userLogin:function () {
+  //     return this.$store.getters.getttersLogin
+  //   }
+  // },
+  mounted() {
   }
 }
 </script>

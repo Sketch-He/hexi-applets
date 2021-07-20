@@ -1,9 +1,11 @@
 <template>
   <view>
-<!--    <br><hr style="width: 80%; position: absolute; left: 10%">-->
-<!--    <br>-->
+    <br>
+    <h3 style="text-align: center">补贴企业数据</h3>
+    <hr style="width: 80%; position: absolute; left: 10%">
+    <br>
     <view class="charts-box">
-      <h3 style="text-align: center">补贴金额/月</h3>
+      <h4 style="text-align: center">补贴金额/月</h4>
       <qiun-data-charts
           type="line"
           :chartData="chartData"
@@ -13,7 +15,7 @@
     <br><hr style="width: 80%; position: absolute; left: 10%">
     <br>
     <view class="charts-box">
-      <h3 style="text-align: center">补贴金额/年</h3>
+      <h4 style="text-align: center">补贴金额/年</h4>
 
       <qiun-data-charts
           type="line"
@@ -21,7 +23,6 @@
           background="none"
       />
     </view>
-    <br><hr style="width: 80%; position: absolute; left: 10%">
     <br>
   </view>
 </template>

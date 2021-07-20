@@ -1,4 +1,4 @@
-import {cloud} from "./axiosRequest";
+import {cloud, transfer} from "./axiosRequest";
 
 
 // //查询统计信息
@@ -78,6 +78,28 @@ export function getJson(params) {
         params,
     })
 }
+
+export function UserLogin( params) {
+    return transfer({
+        url: '/user/login',
+        params,
+    })
+}
+
+//获取当前登录状态
+export function UserStatus() {
+    return transfer({
+        url: '/user/status',
+
+    })
+}
+//登出*
+export function UserLogout() {
+    return transfer({
+        url: '/user/logout',
+    })
+}
+
 
 // //修改数据
 // export function setJson(params, data) {

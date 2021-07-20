@@ -1,9 +1,11 @@
 <template>
   <view>
 <!--公司类型-->
+    <h3 style="text-align: center">园区入驻企业数据</h3>
+    <hr style="width: 80%; position: absolute; left: 10%">
     <br>
     <view class="charts-box">
-      <h3 style="text-align: center">企业类型</h3>
+      <h4 style="text-align: center">企业类型</h4>
       <qiun-data-charts
           type="pie"
           :chartData="chartData"
@@ -15,7 +17,7 @@
 
     <!--公司认证-->
     <view class="charts-box">
-      <h3 style="text-align: center">企业认证</h3>
+      <h4 style="text-align: center">企业认证</h4>
       <qiun-data-charts
           type="pie"
           :chartData="authenticationChartData"
@@ -26,7 +28,7 @@
     <br>
 <!--月入驻公司数据-->
     <view class="charts-box">
-      <h3 style="text-align: center">企业入驻信息</h3>
+      <h4 style="text-align: center">企业入驻信息/月</h4>
       <qiun-data-charts
           type="column"
           :chartData="MonthChartData"
@@ -35,10 +37,8 @@
     </view>
     <br><hr style="width: 80%; position: absolute; left: 10%">
     <br>
-
-
     <view class="charts-box">
-      <h3 style="text-align: center">企业入驻信息/年</h3>
+      <h4 style="text-align: center">企业入驻信息/年</h4>
       <qiun-data-charts
           type="column"
           :chartData="YearChartData"
@@ -107,7 +107,6 @@ export default {
     //获取公司数据
     getCompany() {
       getJson(this.params).then(res => {
-        console.log(res)
         for (let i = 0; i < res.data.countGroupByType.length; i++) {
           this.chartData.series[0].data.push({
             name: res.data.countGroupByType[i].type,
@@ -136,7 +135,6 @@ export default {
           this.YearChartData.categories.push(count[i].year)
           this.YearChartData.series[0].data.push(count[i].count)
         }
-        console.log(this.YearChartData)
       })
     }
   },

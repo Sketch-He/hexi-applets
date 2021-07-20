@@ -20,9 +20,9 @@
 
   <br>
   <view>
-    <h3 style="text-align: center">园区鸟瞰图</h3><br>
+    <h4 style="text-align: center">园区鸟瞰图</h4>
     <img src="../assets/image/screen.jpg" height="100%" width="100%"/></view>
-  <br><hr style="width: 80%; position: absolute; left: 10%">
+  <br>
 </view>
 </template>
 

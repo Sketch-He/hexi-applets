@@ -1,7 +1,11 @@
 <template>
   <view>
+    <br>
+    <h3 style="text-align: center">企业水电用量排行</h3>
+    <hr style="width: 80%; position: absolute; left: 10%">
+    <br>
     <view class="charts-box">
-      <h3 style="text-align: center">企业用水量排行</h3>
+      <h4 style="text-align: center">企业用水量排行</h4>
       <qiun-data-charts
           type="column"
           :chartData="chartData"
@@ -11,7 +15,7 @@
     <br><hr style="width: 80%; position: absolute; left: 10%">
     <br>
     <view class="charts-box">
-      <h3 style="text-align: center">企业用电量排行</h3>
+      <h4 style="text-align: center">企业用电量排行</h4>
       <qiun-data-charts
           type="column"
           :chartData="electricChartData"
