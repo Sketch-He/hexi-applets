@@ -4,8 +4,8 @@
     <h3 style="text-align: center; margin-top: 10%;">输入账号密码登录</h3>
     <p class="loginBox">
       <input class="loginInput" placeholder="请输入账号" v-model="params.username"/>
-      <input class="loginInput" id="password" type="password" placeholder="请输入密码"  v-model="params.password"/>
-      <button type="primary" style="width: 50%" @click="login">点击登录</button>
+      <input class="loginInput" style="margin-top: 5%; margin-bottom: 5%;"  type="password" placeholder="请输入密码"  v-model="params.password"/>
+      <button type="primary" style="width: 50%" @click="login">登录</button>
     </p>
   </view>
   <view v-if="!show">
@@ -104,10 +104,6 @@ export default {
   border: 1px #F8F8F8 solid;
   border-radius: 5px;
   height: 46px;
-}
-#password {
-  margin-top: 5%;
-  margin-bottom: 5%;
 }
 
 </style>

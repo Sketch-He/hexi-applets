@@ -1,52 +1,48 @@
 <template>
   <view>
 <!--公司类型-->
-    <h3 style="text-align: center">园区入驻企业数据</h3>
-    <hr style="width: 80%; position: absolute; left: 10%">
-    <br>
+    <view style="height: 45px;background: #191D3A; color: white">
+      <h3 style="text-align: center; padding-top: 10px">园区入驻企业数据</h3>
+    </view>
     <view class="charts-box">
-      <h4 style="text-align: center">企业类型</h4>
+      <h4 >企业类型</h4>
       <qiun-data-charts
-          type="pie"
+          type="demotype"
           :chartData="chartData"
           background="none"
       />
     </view>
-    <br>    <hr style="width: 80%; position: absolute; left: 10%">
-    <br>
-
     <!--公司认证-->
-    <view class="charts-box">
-      <h4 style="text-align: center">企业认证</h4>
+    <view class="charts-box" style="margin-top: 40px">
+       <hr />
+      <h4 >企业认证</h4>
       <qiun-data-charts
           type="pie"
           :chartData="authenticationChartData"
           background="none"
       />
     </view>
-    <br><hr style="width: 80%; position: absolute; left: 10%">
-    <br>
+
 <!--月入驻公司数据-->
-    <view class="charts-box">
-      <h4 style="text-align: center">企业入驻信息/月</h4>
+    <view class="charts-box" style="margin-top: 40px">
+    <hr />
+      <h4 >企业入驻信息/月</h4>
       <qiun-data-charts
           type="column"
           :chartData="MonthChartData"
           background="none"
       />
     </view>
-    <br><hr style="width: 80%; position: absolute; left: 10%">
-    <br>
-    <view class="charts-box">
-      <h4 style="text-align: center">企业入驻信息/年</h4>
+
+    <view class="charts-box" style="margin-top: 40px">
+      <hr />
+      <h4>企业入驻信息/年</h4>
       <qiun-data-charts
           type="column"
           :chartData="YearChartData"
           background="none"
       />
     </view>
-    <br>
-
   </view>
 </template>
 
@@ -63,7 +59,7 @@ export default {
           {
             "data": []
           }
-        ]
+        ],
       },
       //月入驻公司数据
       MonthChartData:{
@@ -148,5 +144,14 @@ export default {
 .charts-box{
   width: 100%;
   height:300px;
+}
+h4 {
+  text-align: center;
+}
+hr {
+  width: 80%;
+  position: absolute;
+  left: 10%;
+
 }
 </style>

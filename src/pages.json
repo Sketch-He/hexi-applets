@@ -17,13 +17,8 @@
 			"style": {
 				"navigationBarTitleText": "河西工业园"
 			}
-		},
-		{
-			"path": "pages/test",
-			"style": {
-				"navigationBarTitleText": "河西工业园"
-			}
 		}
+
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

@@ -1,21 +1,20 @@
 <template>
-  <view>
-    <br>
-    <h3 style="text-align: center">补贴企业数据</h3>
-    <hr style="width: 80%; position: absolute; left: 10%">
-    <br>
+  <view style="margin-top: 40px">
+
+    <view style="height: 50px;background: #191D3A; color: white">
+      <h3 style="text-align: center; padding-top: 15px">补贴企业数据</h3>
+    </view>
     <view class="charts-box">
-      <h4 style="text-align: center">补贴金额/月</h4>
+      <h4 style=" margin-top: 10px">补贴金额/月</h4>
       <qiun-data-charts
           type="line"
           :chartData="chartData"
           background="none"
       />
     </view>
-    <br><hr style="width: 80%; position: absolute; left: 10%">
-    <br>
-    <view class="charts-box">
-      <h4 style="text-align: center">补贴金额/年</h4>
+    <view class="charts-box" >
+      <hr />
+      <h4>补贴金额/年</h4>
 
       <qiun-data-charts
           type="line"
@@ -23,7 +22,6 @@
           background="none"
       />
     </view>
-    <br>
   </view>
 </template>
 
@@ -87,5 +85,14 @@ export default {
 .charts-box{
   width: 100%;
   height:300px;
+  margin-top: 40px
+}
+hr {
+  width: 80%;
+  position: absolute;
+  left: 10%
+}
+h4 {
+  text-align: center;
 }
 </style>

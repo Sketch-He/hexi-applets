@@ -1,21 +1,19 @@
 <template>
-  <view>
-    <br>
-    <h3 style="text-align: center">企业水电用量排行</h3>
-    <hr style="width: 80%; position: absolute; left: 10%">
-    <br>
+  <view style="margin-top: 40px">
+    <view style="height: 50px;background: #191D3A; color: white">
+      <h3 style="text-align: center; padding-top: 15px">企业水电用量排行</h3>
+    </view>
     <view class="charts-box">
-      <h4 style="text-align: center">企业用水量排行</h4>
+      <h4 style="margin-top: 10px">企业用水量排行</h4>
       <qiun-data-charts
           type="column"
           :chartData="chartData"
           background="none"
       />
     </view>
-    <br><hr style="width: 80%; position: absolute; left: 10%">
-    <br>
-    <view class="charts-box">
-      <h4 style="text-align: center">企业用电量排行</h4>
+    <view class="charts-box" style="margin-top: 40px">
+      <hr />
+      <h4>企业用电量排行</h4>
       <qiun-data-charts
           type="column"
           :chartData="electricChartData"
@@ -87,5 +85,13 @@ export default {
 .charts-box{
   width: 100%;
   height:300px;
+}
+hr {
+  width: 80%;
+  position: absolute;
+  left: 10%
+}
+h4 {
+  text-align: center
 }
 </style>

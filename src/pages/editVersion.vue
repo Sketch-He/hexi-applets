@@ -2,10 +2,10 @@
 <view>
   <h3 style="text-align: center; margin-top: 20%">当前版本：{{currentVersion}}</h3>
   <br>
+  <hr>
   <picker class="list" mode="selector" :range="array" @change="picker1" :value="index">
-    <button type="primary" style="width: 50%;">切换版本</button>
+    <button type="primary" style="width: 50%; margin-top: 30px; margin-bottom: 30px">切换版本</button>
   </picker>
-  <br>
 </view>
 </template>
 
@@ -58,10 +58,9 @@ export default {
 </script>
 
 <style scoped>
-.list{
-  /*border: 1px black solid;*/
-  /*border-radius: 5px;*/
-  /*!*height: 46px;*!*/
-  /*width: 50%;*/
+hr {
+  width: 80%;
+  position: absolute;
+  left: 10%
 }
 </style>

@@ -1,11 +1,9 @@
 <template>
-<view>
-
-  <br>
-  <h3 style="text-align: center">公司专利数据</h3>
-  <hr style="width: 80%; position: absolute; left: 10%">
-  <br>
-  <h4 style="text-align: center">专利状态</h4>
+<view  style="margin-top: 40px">
+  <view style="height: 50px;background: #191D3A; color: white">
+    <h3 style="text-align: center; padding-top: 15px">公司专利数据</h3>
+  </view>
+  <h4 style="margin-top: 10px">专利状态</h4>
   <view class="charts-box">
     <qiun-data-charts
         type="column"
@@ -13,9 +11,8 @@
         background="none"
     />
   </view>
-  <hr style="width: 80%; position: absolute; left: 10%">
-  <br>
-  <h4 style="text-align: center" >专利类型</h4>
+  <hr />
+  <h4>专利类型</h4>
   <view class="charts-box">
     <qiun-data-charts
         type="rose"
@@ -23,10 +20,8 @@
         background="none"
     />
   </view>
-
-  <hr style="width: 80%; position: absolute; left: 10%">
-  <br>
-  <h4 style="text-align: center">专利申请/月</h4>
+  <hr />
+  <h4>专利申请/月</h4>
   <view class="charts-box">
     <qiun-data-charts
         type="column"
@@ -112,5 +107,13 @@ export default {
 .charts-box{
   width: 100%;
   height:300px;
+}
+hr {
+  width: 80%;
+  position: absolute;
+  left: 10%
+}
+h4 {
+  text-align: center
 }
 </style>
