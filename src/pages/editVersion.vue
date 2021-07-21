@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import {getVersion, setVersion, versionList} from "../network/request";
 
 export default {
   name: "editVersion",
@@ -24,30 +23,61 @@ export default {
   methods: {
     picker1(e) {
       this.index = e.detail.value
-      setVersion(e.detail.value).then(res => {
-        console.log(res)
-        if(res.code === 2000) {
-          uni.showToast({
-            title: "切换成功",
-            icon: "success",
-            position: "top"
-          })
-        this.getversion()
+      uni.request({
+        url: "https://www.xykgjt.net/version/set",
+        data: e.detail.value,
+        success: (res) => {
+          res = res.data
+          if(res.code === 2000) {
+            uni.showToast({
+              title: "切换成功",
+              icon: "success",
+              position: "top"
+            })
+            this.getversion()
+          }
         }
       })
 
+      // setVersion(e.detail.value).then(res => {
+      //   console.log(res)
+      //   if(res.code === 2000) {
+      //     uni.showToast({
+      //       title: "切换成功",
+      //       icon: "success",
+      //       position: "top"
+      //     })
+      //   this.getversion()
+      //   }
+      // })
+
     },
     getversion() {
-      getVersion().then(res => {
-        console.log(res)
-        this.currentVersion = res.data.id
+      uni.request({
+        url: "https://www.xykgjt.net/version/get",
+        success: (res) => {
+          res = res.data
+          this.currentVersion = res.data.id
+        }
       })
+      // getVersion().then(res => {
+      //   console.log(res)
+      //   this.currentVersion = res.data.id
+      // })
     },
     getversionlist() {
-      versionList().then(res => {
-        this.array = res.data
-        console.log(res)
+
+      uni.request({
+        url: "https://www.xykgjt.net/json/list",
+        success: (res) => {
+          res = res.data
+          this.array = res.data
+        }
       })
+      // versionList().then(res => {
+      //   this.array = res.data
+      //   console.log(res)
+      // })
     }
   },
   mounted() {

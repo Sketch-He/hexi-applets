@@ -2,7 +2,6 @@
   <view>
     <view style="height: 50px;background: #191D3A; color: white">
       <h3 style="text-align: center; padding-top: 15px">柳州天步科技创业园智慧园区</h3>
-      <h3 style="text-align: center; ">测试</h3>
     </view>
     <carousel />
     <settle-in-company-chart />
@@ -25,16 +24,25 @@ export default {
     SubsidyStatusChart,
       HydropowerChart, settleInCompanyChart
   },
+  data() {
+    return {
+    }
+  },
   methods: {
     signIn() {
-      // this.$router.push({path: 'pages/versionControl'})
       uni.navigateTo({
         url:'versionControl' //跳转地址
       })
     }
   },
   mounted() {
-    //标记1
+    // uni.request({
+    //   url: "https://www.xykgjt.net/User/login",
+    //   // url: "https://www.xykgjt.net/User/editPass",
+    //   success: (res) => {
+    //     res = res.data
+    //   }
+    // })
   }
 
 }

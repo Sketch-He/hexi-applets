@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import {UserLogin, UserLogout, UserStatus} from "../network/request";
+import { UserLogout, UserStatus} from "../network/request";
 import EditVersion from "./editVersion";
 export default {
   name: "versionControl",
@@ -59,24 +59,50 @@ export default {
 
     },
     login() {
-      UserLogin(this.params)
-          .then(res => {
-            if(res.code === 2000) {
-              uni.showToast({
-                title: res.message,
-                icon: "success",
-                position: "top"
-              })
-              this.show = false
-            }
-            if(res.code !== 2000) {
-              uni.showToast({
-                title: res.message,
-                icon: "error",
-                position: "top"
-              })
-            }
-          })
+
+      uni.request({
+        url: "https://www.xykgjt.net/User/login",
+        // url: "https://www.xykgjt.net/User/editPass",
+        success: (res) => {
+          res = res.data
+          if(res.code === 2000) {
+            uni.showToast({
+              title: res.message,
+              icon: "success",
+              position: "top"
+            })
+            this.show = false
+          }
+          if(res.code !== 2000) {
+            uni.showToast({
+              title: res.message,
+              icon: "error",
+              position: "top"
+            })
+          }
+        }
+      })
+
+
+
+      // UserLogin(this.params)
+      //     .then(res => {
+      //       if(res.code === 2000) {
+      //         uni.showToast({
+      //           title: res.message,
+      //           icon: "success",
+      //           position: "top"
+      //         })
+      //         this.show = false
+      //       }
+      //       if(res.code !== 2000) {
+      //         uni.showToast({
+      //           title: res.message,
+      //           icon: "error",
+      //           position: "top"
+      //         })
+      //       }
+      //     })
     }
   },
   mounted() {

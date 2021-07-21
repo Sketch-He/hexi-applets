@@ -24,7 +24,6 @@
 </template>
 
 <script>
-import {getJson} from "../../network/request";
 
 export default {
   name: "hydropowerChart",
@@ -53,25 +52,28 @@ export default {
           }
         ]
       },
-
     }
   },
   methods: {
     billList() {
-      getJson(this.params).then(res => {
-        let water = res.data.topMap.水费.splice(0,5)
-        let electric = res.data.topMap.电费.splice(0,5)
-        //获得水费排行
-        for (let i = 0; i < water.length; i++) {
-          this.chartData.categories.push(water[i].companyName)
-          this.chartData.series[0].data.push(water[i].amount)
+      uni.request({
+        url: "https://www.xykgjt.net/json/get",
+        data: this.params,
+        success: (res) => {
+          res = res.data
+          let water = res.data.topMap.水费.splice(0,5)
+          let electric = res.data.topMap.电费.splice(0,5)
+          //获得水费排行
+          for (let i = 0; i < water.length; i++) {
+            this.chartData.categories.push(water[i].companyName)
+            this.chartData.series[0].data.push(water[i].amount)
+          }
+          //获得电费排行
+          for (let i = 0; i < res.data.topMap.电费.length; i++) {
+            this.electricChartData.categories.push(electric[i].companyName)
+            this.electricChartData.series[0].data.push(electric[i].amount)
+          }
         }
-        //获得电费排行
-        for (let i = 0; i < res.data.topMap.电费.length; i++) {
-          this.electricChartData.categories.push(electric[i].companyName)
-          this.electricChartData.series[0].data.push(electric[i].amount)
-        }
-
       })
     },
   },
